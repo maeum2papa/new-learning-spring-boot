@@ -48,4 +48,6 @@ export PATH=${PATH}:$JAVA_HOME/bin
     - Spring Data JPA
 10. 프로젝트 생성되고 메세지창에서 add Workspace 선택
 
+- https://start.spring.io/ 통해서 프로젝트 생성 시 참조
+ - **Project**는 **Gradle-Kotlin** 선택
 
