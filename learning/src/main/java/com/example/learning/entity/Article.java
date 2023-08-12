@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class Article {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue //자동으로 1,2,3 ... 이렇게 늘어남
     private Long id;
     
     @Column

@@ -19,11 +19,11 @@ public class SearchController {
     public String search(SearchForm form){
         System.out.println(form.toString());
 
-        //1. dto를 entity로 변환
+        //1. DTO를 Entity로 변환
         Article article = form.toEntity();
         System.out.println(article.toString());
 
-        //2. entity를 database로 
+        //2. Entity를 Repository를 통해 database로 
         Article saved = articleRepository.save(article);
         System.out.println(saved.toString());
 

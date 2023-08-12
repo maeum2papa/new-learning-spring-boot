@@ -43,11 +43,57 @@ export PATH=${PATH}:$JAVA_HOME/bin
 8. Java 버전 선택 / JAVA_HOME 환경변수와 일치 필요
 9. dependencies 선택
     - Spring Web
-    - H2 Database
+    - H2 Database : 가벼운 데이터베이스 (임시용)
     - Mustache
     - Spring Data JPA
 10. 프로젝트 생성되고 메세지창에서 add Workspace 선택
 
 - https://start.spring.io/ 통해서 프로젝트 생성 시 참조
   - **Project**는 **Gradle-Kotlin** 선택
+
+## MVC
+### Model
+- controller/MainController.java 참조
+- 데이터를 View로 보낼 수 있음
+
+### View
+- 화면
+- {{>header}}식으로 import 가능
+- Model에서 보내온 데이터를 {{name}} 식으로 사용
+
+### Controller
+- 처음 인입
+- GET 인입 controller/MainController.java 참조
+- POST 인입 controller/SearchController.java 참조
+- POST 인입시 DTO 활용 (파라미터를 객체로 받을 수 있게 함, Form)
+  - dto/SearchForm.java 참조
+
+
+## JPA
+- 데이터베이스로 데이터를 보내기 위한 도구
+- 일련의 과정 controller/SearchController.java 참조
+### DTO를 Entity로 바꾸고((Form -> Object) -> Entity)
+- dto, entity 폴더 참조
+- dto = 파라미터 구조
+- entity = 데이터베이스 테이블 구조
+
+### Entity를 Repository를 통해 Database로 
+- respotory 폴더 참조
+- Extends CrudRepository를 활용하여 거의 고정
+- extends CrudRepository<엔티티명,아이디타입>
+~~~java
+public interface ArticleRepository extends CrudRepository<Article,Long>{
+    
+}
+~~~
+
+### H2 Database 사용을 위한 세팅
+- resources/applicationi.properies 에 아래 코드 추가
+~~~
+spring.h2.console.enabled=true
+~~~
+
+### H2 콘솔 접속은 
+- 도메인/h2-console
+- Connect 정보는 콘솔에서 jdbc로 검색
 
