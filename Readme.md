@@ -97,3 +97,21 @@ spring.h2.console.enabled=true
 - 도메인/h2-console
 - Connect 정보는 콘솔에서 jdbc로 검색
 
+## Loombok
+### 설치
+1. https://projectlombok.org/setup/gradle 참조
+~~~
+/* build.gradle */
+dependencies {
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok'
+~~~
+
+2. **f1키** 또는 **fn+f1** 눌러서 명령창 활성하
+3. **Java:Clean Java Language Server Workspace** 검색 후 선택
+
+### 주요 어노테이션
+- @NoArgsConstructor : 파라미터가 없는 기본 생성자를 생성
+- @AllArgsConstructor : 모든 필드 값을 파라미터로 받는 생성자를 만듦
+- @ToString : toString() 대체
+- @Slf4j : 로깅을 만드는데 도움

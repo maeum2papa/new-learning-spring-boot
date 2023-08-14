@@ -8,7 +8,10 @@ import com.example.learning.dto.SearchForm;
 import com.example.learning.entity.Article;
 import com.example.learning.respository.ArticleRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Controller
+@Slf4j //로그를 위한 이노테이션
 public class SearchController {
 
 
@@ -17,15 +20,18 @@ public class SearchController {
     
     @PostMapping("/search")
     public String search(SearchForm form){
-        System.out.println(form.toString());
+        // System.out.println(form.toString());
+        log.info(form.toString());
 
         //1. DTO를 Entity로 변환
         Article article = form.toEntity();
-        System.out.println(article.toString());
+        // System.out.println(article.toString());
+        log.info(article.toString());
 
         //2. Entity를 Repository를 통해 database로 
         Article saved = articleRepository.save(article);
-        System.out.println(saved.toString());
+        // System.out.println(saved.toString());
+        log.info(saved.toString());
 
         return "";
     }
